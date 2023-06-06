@@ -1,0 +1,52 @@
+@import "../../../assets/styles/backgrounds";
+@import "../../../assets/styles/colors";
+
+.header {
+  min-height: 60px;
+  background: $bg-dark-blue;
+  display: flex;
+  align-items: center;
+
+  &__title {
+    font-size: 26px;
+    font-weight: 700;
+    color: $color-success;
+    text-decoration: none;
+
+    span {
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.4s;
+
+  &:hover {
+    color: $color-success;
+  }
+}
+
+.current-link {
+  color: $color-success;
+  text-decoration: none;
+  transition: 0.4s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
