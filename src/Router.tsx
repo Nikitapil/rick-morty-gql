@@ -1,30 +1,31 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Layout } from "./Layout/pages/Layout";
-import { ErrorPage } from "./Layout/pages/ErrorPage/ErrorPage";
-import { MainPage } from "./Main/pages/MainPage";
+import { createBrowserRouter } from 'react-router-dom';
+import { Layout } from './Layout/pages/Layout';
+import { ErrorPage } from './Layout/pages/ErrorPage/ErrorPage';
+import { MainPage } from './Main/pages/MainPage';
+import { CharactersPage } from './Characters/pages/CharactersPage';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <MainPage />,
+        element: <MainPage />
       },
       {
-        path: "characters",
-        element: <MainPage />,
+        path: 'characters',
+        element: <CharactersPage />
       },
       {
-        path: "locations",
-        element: <MainPage />,
+        path: 'locations',
+        element: <MainPage />
       },
       {
-        path: "episodes",
-        element: <MainPage />,
-      },
-    ],
-  },
+        path: 'episodes',
+        element: <MainPage />
+      }
+    ]
+  }
 ]);

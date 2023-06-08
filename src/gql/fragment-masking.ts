@@ -49,7 +49,6 @@ export function useFragment<TType>(
 export function makeFragmentData<
   F extends DocumentTypeDecoration<any, any>,
   FT extends ResultOf<F>
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 >(data: FT, _fragment: F): FragmentType<F> {
   return data as FragmentType<F>;
 }
@@ -58,7 +57,6 @@ export function isFragmentReady<TQuery, TFrag>(
   fragmentNode: TypedDocumentNode<TFrag>,
   data: FragmentType<TypedDocumentNode<Incremental<TFrag>, any>> | null | undefined
 ): data is FragmentType<typeof fragmentNode> {
-  // eslint-disable-next-line no-underscore-dangle
   const deferredFields = (
     queryNode as { __meta__?: { deferredFields: Record<string, (keyof TFrag)[]> } }
   ).__meta__?.deferredFields;

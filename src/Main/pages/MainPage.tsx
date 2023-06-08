@@ -13,15 +13,16 @@ export const MainPage = () => {
           Wiki about Rick and Morty. There you can find information about characters, locations or
           episodes in Rick and Morty universe
         </p>
-        <div className={styles.characters}>
+        <section className={styles.characters}>
           {characters?.map((character) => (
             <LinkCard
-              path={`/cahracters/${character!.id}`}
+              key={character?.id}
+              path={`/characters/${character?.id}`}
               title={character?.name || ''}
               image={character?.image || ''}
             />
           ))}
-        </div>
+        </section>
       </div>
     </div>
   );

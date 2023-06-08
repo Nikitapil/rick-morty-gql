@@ -1,0 +1,18 @@
+@import "../../assets/styles/colors";
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  button {
+    background: none;
+    border: none;
+    color: #fff;
+    transition: 0.4s;
+
+    &:hover, &.current {
+      color: $color-success;
+    }
+  }
+}

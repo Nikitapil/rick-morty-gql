@@ -1,0 +1,15 @@
+@import "../../assets/styles/colors";
+
+.app-input {
+  outline: none;
+  height: 30px;
+  width: 100%;
+  padding: 3px 5px;
+  border: 1px solid $color-success;
+  transition: 0.3s;
+  border-radius: 5px;
+
+  &:focus {
+    border-width: 2px;
+  }
+}

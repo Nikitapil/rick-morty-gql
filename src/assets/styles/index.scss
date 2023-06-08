@@ -3,15 +3,34 @@
 @import "./backgrounds";
 
 body {
-  background: $bg-medium-blue no-repeat;
+  background: $bg-medium-blue;
   font-family: 'Roboto', sans-serif;
   color: #fff;
+}
+
+main {
+  background: $bg-medium-blue;
+  min-height: calc(100vh - 60px);
 }
 
 .container {
   max-width: 1280px;
   padding: 0 10px;
   margin: 0 auto;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.full-center {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .w-100 {
