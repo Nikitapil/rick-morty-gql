@@ -15,6 +15,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
   '\n  query GetCharacters($page: Int, $name: String) {\n    characters(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n        image\n      }\n      info {\n        pages\n      }\n    }\n  }\n':
     types.GetCharactersDocument,
+  '\n  query GetLocations($page: Int, $name: String) {\n    locations(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n':
+    types.GetLocationsDocument,
   '\n  query getMainCharacters {\n    charactersByIds(ids: [1, 2, 3, 4, 5]) {\n      id\n      name\n      image\n    }\n  }\n':
     types.GetMainCharactersDocument
 };
@@ -39,6 +41,12 @@ export function gql(source: string): unknown;
 export function gql(
   source: '\n  query GetCharacters($page: Int, $name: String) {\n    characters(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n        image\n      }\n      info {\n        pages\n      }\n    }\n  }\n'
 ): (typeof documents)['\n  query GetCharacters($page: Int, $name: String) {\n    characters(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n        image\n      }\n      info {\n        pages\n      }\n    }\n  }\n'];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(
+  source: '\n  query GetLocations($page: Int, $name: String) {\n    locations(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n'
+): (typeof documents)['\n  query GetLocations($page: Int, $name: String) {\n    locations(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n'];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

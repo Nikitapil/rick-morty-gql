@@ -3,6 +3,7 @@ import { Layout } from './Layout/pages/Layout';
 import { ErrorPage } from './Layout/pages/ErrorPage/ErrorPage';
 import { MainPage } from './Main/pages/MainPage';
 import { CharactersPage } from './Characters/pages/CharactersPage';
+import { LocationsPage } from './Locations/pages/LocationsPage';
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'locations',
-        element: <MainPage />
+        element: <LocationsPage />
       },
       {
         path: 'episodes',
