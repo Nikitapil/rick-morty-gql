@@ -1,9 +1,9 @@
 import styles from './common-page.module.scss';
 import { AppInput } from '../AppInput/AppInput';
-import { LinkCard } from '../LinkCard/LinkCard';
 import { Pagination } from '../Pagination/Pagination';
 import { ILinkCardData } from '../../types/common';
 import { Loader } from '../Loader/Loader';
+import { DataList } from './DataList';
 
 interface ICommonPageProps {
   pageName: string;
@@ -45,17 +45,11 @@ export const CommonPage = ({
             placeholder={`Search ${pageName}...`}
           />
         </section>
-        <section className={styles['data-container']}>
-          {data.map((item) => (
-            <LinkCard
-              key={item?.id}
-              path={`/${pageName}/${item?.id}`}
-              title={item?.name || ''}
-              image={item?.image || ''}
-            />
-          ))}
-          {data.length === 0 && <p>No data found</p>}
-        </section>
+        <DataList
+          data={data}
+          pageName={pageName}
+        />
+        {data.length === 0 && <p>No data found</p>}
         <Pagination
           currentPage={currentPage}
           pagesCount={pagesCount}

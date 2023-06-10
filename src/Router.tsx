@@ -6,6 +6,7 @@ import { CharactersPage } from './Characters/pages/CharactersPage';
 import { LocationsPage } from './Locations/pages/LocationsPage';
 import { EpisodesPage } from './Episodes/pages/EpisodesPage';
 import { SingleCharacterPage } from './Characters/pages/SingleCharacterPage';
+import { SingleLocationPage } from './Locations/pages/SingleLocationPage';
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: 'locations',
         element: <LocationsPage />
+      },
+      {
+        path: 'locations/:id',
+        element: <SingleLocationPage />
       },
       {
         path: 'episodes',

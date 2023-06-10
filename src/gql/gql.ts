@@ -21,6 +21,8 @@ const documents = {
     types.GetEpisodesDocument,
   '\n  query GetLocations($page: Int, $name: String) {\n    locations(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n':
     types.GetLocationsDocument,
+  '\n  query GetLocation($id: ID!) {\n    location(id: $id) {\n      name\n      type\n      dimension\n      residents {\n        id\n        name\n        image\n      }\n    }\n  }\n':
+    types.GetLocationDocument,
   '\n  query getMainCharacters {\n    charactersByIds(ids: [1, 2, 3, 4, 5]) {\n      id\n      name\n      image\n    }\n  }\n':
     types.GetMainCharactersDocument
 };
@@ -63,6 +65,12 @@ export function gql(
 export function gql(
   source: '\n  query GetLocations($page: Int, $name: String) {\n    locations(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n'
 ): (typeof documents)['\n  query GetLocations($page: Int, $name: String) {\n    locations(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n'];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(
+  source: '\n  query GetLocation($id: ID!) {\n    location(id: $id) {\n      name\n      type\n      dimension\n      residents {\n        id\n        name\n        image\n      }\n    }\n  }\n'
+): (typeof documents)['\n  query GetLocation($id: ID!) {\n    location(id: $id) {\n      name\n      type\n      dimension\n      residents {\n        id\n        name\n        image\n      }\n    }\n  }\n'];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

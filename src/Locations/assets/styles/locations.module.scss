@@ -1,0 +1,19 @@
+@import "../../../assets/styles/colors";
+
+.location-info {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.location-info__item {
+  h3 {
+    font-size: 20px;
+    line-height: 150%;
+  }
+  p {
+    color: $color-success;
+  }
+}

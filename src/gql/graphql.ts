@@ -271,6 +271,26 @@ export type GetLocationsQuery = {
   } | null;
 };
 
+export type GetLocationQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+export type GetLocationQuery = {
+  __typename?: 'Query';
+  location?: {
+    __typename?: 'Location';
+    name?: string | null;
+    type?: string | null;
+    dimension?: string | null;
+    residents: Array<{
+      __typename?: 'Character';
+      id?: string | null;
+      name?: string | null;
+      image?: string | null;
+    } | null>;
+  } | null;
+};
+
 export type GetMainCharactersQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetMainCharactersQuery = {
@@ -580,6 +600,62 @@ export const GetLocationsDocument = {
     }
   ]
 } as unknown as DocumentNode<GetLocationsQuery, GetLocationsQueryVariables>;
+export const GetLocationDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'GetLocation' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'ID' } }
+          }
+        }
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'location' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'id' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'id' } }
+              }
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'type' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'dimension' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'residents' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'image' } }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+} as unknown as DocumentNode<GetLocationQuery, GetLocationQueryVariables>;
 export const GetMainCharactersDocument = {
   kind: 'Document',
   definitions: [

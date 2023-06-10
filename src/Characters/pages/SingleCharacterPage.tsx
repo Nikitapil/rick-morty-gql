@@ -21,9 +21,9 @@ export const SingleCharacterPage = () => {
 
   return (
     <div className="container">
-      <div className={styles['page-container']}>
+      <div className="page-container">
         <h2 className="page-title">{character.name}</h2>
-        <div className={styles['single-character']}>
+        <section className={styles['single-character']}>
           {character.image && (
             <img
               className={styles.image}
@@ -71,7 +71,7 @@ export const SingleCharacterPage = () => {
               </dd>
             </div>
           </dl>
-        </div>
+        </section>
       </div>
     </div>
   );
