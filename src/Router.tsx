@@ -4,6 +4,7 @@ import { ErrorPage } from './Layout/pages/ErrorPage/ErrorPage';
 import { MainPage } from './Main/pages/MainPage';
 import { CharactersPage } from './Characters/pages/CharactersPage';
 import { LocationsPage } from './Locations/pages/LocationsPage';
+import { EpisodesPage } from './Episodes/pages/EpisodesPage';
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'episodes',
-        element: <MainPage />
+        element: <EpisodesPage />
       }
     ]
   }
