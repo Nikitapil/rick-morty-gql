@@ -217,6 +217,24 @@ export type GetCharactersQuery = {
   } | null;
 };
 
+export type GetCharacterQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+export type GetCharacterQuery = {
+  __typename?: 'Query';
+  character?: {
+    __typename?: 'Character';
+    name?: string | null;
+    status?: string | null;
+    species?: string | null;
+    gender?: string | null;
+    image?: string | null;
+    origin?: { __typename?: 'Location'; id?: string | null; name?: string | null } | null;
+    episode: Array<{ __typename?: 'Episode'; id?: string | null; name?: string | null } | null>;
+  } | null;
+};
+
 export type GetEpisodesQueryVariables = Exact<{
   page?: InputMaybe<Scalars['Int']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
@@ -342,6 +360,74 @@ export const GetCharactersDocument = {
     }
   ]
 } as unknown as DocumentNode<GetCharactersQuery, GetCharactersQueryVariables>;
+export const GetCharacterDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'GetCharacter' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'ID' } }
+          }
+        }
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'character' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'id' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'id' } }
+              }
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'status' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'species' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'gender' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'image' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'origin' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'name' } }
+                    ]
+                  }
+                },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'episode' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'name' } }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+} as unknown as DocumentNode<GetCharacterQuery, GetCharacterQueryVariables>;
 export const GetEpisodesDocument = {
   kind: 'Document',
   definitions: [

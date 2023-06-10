@@ -1,0 +1,62 @@
+@import "../../../assets/styles/colors";
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.single-character {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.image {
+  max-width: 320px;
+}
+
+.character-info__item {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  dt {
+    font-size: 20px;
+  }
+
+  dd {
+    color: $color-success;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.4s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.character-info {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.episodes {
+  max-height: 200px;
+  overflow: auto;
+}
