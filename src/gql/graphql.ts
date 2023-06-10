@@ -253,6 +253,25 @@ export type GetEpisodesQuery = {
   } | null;
 };
 
+export type GetEpisodeQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+export type GetEpisodeQuery = {
+  __typename?: 'Query';
+  episode?: {
+    __typename?: 'Episode';
+    name?: string | null;
+    air_date?: string | null;
+    characters: Array<{
+      __typename?: 'Character';
+      id?: string | null;
+      name?: string | null;
+      image?: string | null;
+    } | null>;
+  } | null;
+};
+
 export type GetLocationsQueryVariables = Exact<{
   page?: InputMaybe<Scalars['Int']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
@@ -524,6 +543,61 @@ export const GetEpisodesDocument = {
     }
   ]
 } as unknown as DocumentNode<GetEpisodesQuery, GetEpisodesQueryVariables>;
+export const GetEpisodeDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'GetEpisode' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'ID' } }
+          }
+        }
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'episode' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'id' },
+                value: { kind: 'Variable', name: { kind: 'Name', value: 'id' } }
+              }
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'air_date' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'characters' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'image' } }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+} as unknown as DocumentNode<GetEpisodeQuery, GetEpisodeQueryVariables>;
 export const GetLocationsDocument = {
   kind: 'Document',
   definitions: [

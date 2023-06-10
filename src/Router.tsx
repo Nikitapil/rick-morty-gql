@@ -7,6 +7,7 @@ import { LocationsPage } from './Locations/pages/LocationsPage';
 import { EpisodesPage } from './Episodes/pages/EpisodesPage';
 import { SingleCharacterPage } from './Characters/pages/SingleCharacterPage';
 import { SingleLocationPage } from './Locations/pages/SingleLocationPage';
+import { SingleEpisodePage } from './Episodes/pages/SingleEpisodePage';
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: 'episodes',
         element: <EpisodesPage />
+      },
+      {
+        path: 'episodes/:id',
+        element: <SingleEpisodePage />
       }
     ]
   }

@@ -19,6 +19,8 @@ const documents = {
     types.GetCharacterDocument,
   '\n  query GetEpisodes($page: Int, $name: String) {\n    episodes(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n':
     types.GetEpisodesDocument,
+  '\n  query GetEpisode($id: ID!) {\n    episode(id: $id) {\n      name\n      air_date\n      characters {\n        id\n        name\n        image\n      }\n    }\n  }\n':
+    types.GetEpisodeDocument,
   '\n  query GetLocations($page: Int, $name: String) {\n    locations(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n':
     types.GetLocationsDocument,
   '\n  query GetLocation($id: ID!) {\n    location(id: $id) {\n      name\n      type\n      dimension\n      residents {\n        id\n        name\n        image\n      }\n    }\n  }\n':
@@ -59,6 +61,12 @@ export function gql(
 export function gql(
   source: '\n  query GetEpisodes($page: Int, $name: String) {\n    episodes(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n'
 ): (typeof documents)['\n  query GetEpisodes($page: Int, $name: String) {\n    episodes(page: $page, filter: { name: $name }) {\n      results {\n        id\n        name\n      }\n      info {\n        pages\n      }\n    }\n  }\n'];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(
+  source: '\n  query GetEpisode($id: ID!) {\n    episode(id: $id) {\n      name\n      air_date\n      characters {\n        id\n        name\n        image\n      }\n    }\n  }\n'
+): (typeof documents)['\n  query GetEpisode($id: ID!) {\n    episode(id: $id) {\n      name\n      air_date\n      characters {\n        id\n        name\n        image\n      }\n    }\n  }\n'];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

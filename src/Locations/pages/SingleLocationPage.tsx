@@ -18,7 +18,7 @@ export const SingleLocationPage = () => {
   }
 
   if (!location || error) {
-    return <div className="full-center">Character not found</div>;
+    return <div className="full-center">Location not found</div>;
   }
 
   return (
@@ -35,6 +35,7 @@ export const SingleLocationPage = () => {
             <p>{location.dimension}</p>
           </div>
         </section>
+        <h3 className="align-start mb-10">Residents: </h3>
         <DataList
           data={location.residents as ILinkCardData[]}
           pageName="characters"
