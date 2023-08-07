@@ -4,4 +4,4 @@ Fun web-app based on Rick and Morty graphql api
 
 ## Technologies:
 
-React
+React, GraphQl
